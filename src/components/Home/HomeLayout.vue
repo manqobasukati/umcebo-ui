@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-tabs v-model="tab">
         <q-tab name="home" label="Home" />
-        <q-tab name="profile" label="Profile" />
+        <q-tab name="profile" label="Summary" />
       </q-tabs>
     </q-header>
 

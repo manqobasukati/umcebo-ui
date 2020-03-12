@@ -15,32 +15,41 @@ class localStorageHandlerClass implements localStorageHandler {
         let total_out: number = 0;
         const transactions = this.get_user();
 
-        
 
-        if (transactions !== null ) {
+
+        if (transactions) {
+
             for (let i = 0; i <= transactions.transactions.length - 1; i++) {
-              
-                if (transactions.transactions[i].action === "in") {
 
-                    total_in = total_in + transactions.transactions[i].amount;
-                    
-                }
-                if (transactions.transactions[i].action === "out") {
 
-                    total_out = total_out + transactions.transactions[i].amount;
-                   
+                if (transactions.transactions) {
+
+                    if (transactions.transactions[i].action === "in") {
+
+                        // @ts-ignore
+                        total_in = total_in + transactions.transactions[i].amount;
+
+                    }
+                    if (transactions.transactions[i].action === "out") {
+                        // @ts-ignore
+                        total_out = total_out + transactions.transactions[i].amount;
+
+                    }
+
+
                 }
+
             }
             this.balance = total_in - total_out;
             return this.balance;
-        }else{
+        } else {
             return this.balance
         }
 
-        
+
 
         //console.log(`Total in = ${total_in}, Total_out = ${total_out} and balance = ${this.balance}`)
-       
+
     }
     public get_user(): null | User {
 
@@ -52,23 +61,52 @@ class localStorageHandlerClass implements localStorageHandler {
         return null;
     };
 
-    public async add_transaction(transaction: Transaction):Promise<boolean>{
+    public async  edit_transaction(data:Transaction):Promise<boolean> {
+        //first get user
+        const user: User | null = this.get_user();
+        if(user !== null){
+            user.transactions.forEach((transaction: Transaction) => {
+
+              
+                    if (transaction.id == data.id) {
+                        
+                        transaction.amount = data.amount;
+                        transaction.description = data.description;
+                        transaction.action = data.action;
+                        transaction.date = data.date;
+                        
+                    }
+
+                
+            })
+            
+            localStorage.setItem(localStorageKeys.user,JSON.stringify(user))
+        }
+
 
         
+      
+        return false;
+    }
+
+
+    public async add_transaction(transaction: Transaction): Promise<boolean> {
+
+
         const user = localStorage.getItem(localStorageKeys.user);
         if (user) {
             const item: User = JSON.parse(user);
             item.transactions.push(transaction);
             localStorage.setItem(localStorageKeys.user, JSON.stringify(item));
             return true;
-            
-        }else{
+
+        } else {
             const t: User = {
                 id: 1,
                 name: "Manqoba",
                 transactions: [transaction]
             }
-            localStorage.setItem(localStorageKeys.user,  JSON.stringify(t));
+            localStorage.setItem(localStorageKeys.user, JSON.stringify(t));
             return true;
         }
 
@@ -94,7 +132,7 @@ class localStorageHandlerClass implements localStorageHandler {
         try {
 
             localStorage.setItem(localStorageKeys.user, JSON.stringify(t));
-            // console.log("I am here")
+
         } catch (e) {
             console.error("HERE", e)
         }

@@ -16,7 +16,7 @@ export interface User{
 
 export interface Transaction{
     id:number;
-    date?:Date,
+    date?:Date|string,
     action?:action,
     description?:string,
     amount?:number
@@ -33,6 +33,7 @@ export interface localStorageHandler{
     get_user_balance():number;
     get_user(): null | User;
     add_transaction(transaction:Transaction):Promise<boolean>;
+    edit_transaction(data?:Transaction):Promise<boolean>
 }
 
 

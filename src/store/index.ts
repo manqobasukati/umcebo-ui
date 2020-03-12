@@ -25,7 +25,8 @@ export enum GETTERS {
 
 export enum MUTATIONS {
   add_transaction = "add_transcation",
-  set_user_balance = "set_user_balance"
+  set_user_balance = "set_user_balance",
+  edit_transaction = "edit_transaction"
 }
 
 export enum ACTIONS {
@@ -45,11 +46,19 @@ export default function () {
         const add_user = ls.add_transaction(payload);
         if (add_user) {
           state.user = ls.get_user();
+          state.balance = ls.get_user_balance();
         }
       },
       [MUTATIONS.set_user_balance](state, payload) {
-        console.log(payload);
+      
         state.balance = payload;
+      },
+      [MUTATIONS.edit_transaction](state,payload){
+        const add_user = ls.edit_transaction(payload);
+        if (add_user) {
+          state.user = ls.get_user();
+          state.balance = ls.get_user_balance();
+        }
       }
     },
     actions: {
@@ -64,6 +73,7 @@ export default function () {
         return state.user //|| { id: 0, name: 'manqoba', transactions: [{ id: 0, description: 'dumb', amount: 0, date: new Date() }] };
       },
       [GETTERS.get_user_balance](state) {
+        state.balance = ls.get_user_balance();
         return state.balance;
       }
     },
