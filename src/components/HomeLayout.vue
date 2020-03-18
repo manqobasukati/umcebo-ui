@@ -12,7 +12,7 @@
       bordered>
       <q-scroll-area class="fit">
           <q-list v-for="(menuItem, index) in menuList" :key="index">
-            <q-item clickable active="menuItem.label === 'Expenditure'" v-ripple>
+            <q-item clickable v-ripple v-bind:to="menuItem.url">
               <q-item-section avatar>
                 <i v-bind:class="menuItem.icon"></i>
               </q-item-section>
@@ -25,45 +25,20 @@
       <!-- drawer content -->
     </q-drawer>
     <q-page-container>
-      <h1>Helloo</h1>
       <router-view ></router-view>
     </q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
-import Home from './Home.vue';
-import Profile from './Profile.vue';
-
 import Vue from 'vue';
+import Home from './Home.vue';
+import { menuList } from 'src/config'
 
-const menuList = [
-   {
-    icon:'fas fa-home',
-    label:'Home'
-  },
-  {
-    icon:'fas fa-air-freshener',
-    label:'Budget'
-  },
-  {
-    icon:'',
-    label:'Expenditure'
-  },
-  {
-    icon:'',
-    label:'loan'
-  },
-  {
-    icon:'fas fa-seedling',
-    label:'Invest & Save'
-  },
-  {
-    icon:'',
-    label:'Stokvel'
-  },
-  
-]
+
+
+
+
 
 export default Vue.extend({
   name: 'HomeLayout',

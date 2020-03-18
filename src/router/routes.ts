@@ -4,10 +4,10 @@ const routes: RouteConfig[] = [
   
   {
     path: '/',
-    component: () => import('components/Home/HomeLayout.vue'),
+    component: () => import('components/HomeLayout.vue'),
     children: [
-      {path:'/home',component:()=>import('components/Home/Home.vue')},
-      {path:'menu',component:()=>import('components/Menu.vue')}
+      {path:'home',component:()=>import('components/Home.vue')},
+      {path:'expenditure',component:()=>import('components/Expenditure/Expenditure.vue')}
     ]
   },
   

@@ -36,7 +36,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import UserTransactions from '../Home/UserTransactions.vue';
+import UserTransactions from '../Expenditure/UserTransactions.vue';
 import { Transaction } from '../../core/types';
 import { getAllTransactions } from '../../core/transactions';
 import { ls } from '../../core/local_storage_handler';
