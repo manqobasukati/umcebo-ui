@@ -7,7 +7,7 @@ const routes: RouteConfig[] = [
     component: () => import('components/HomeLayout.vue'),
     children: [
       {path:'home',component:()=>import('components/Home.vue')},
-      {path:'expenditure',component:()=>import('components/Expenditure/Expenditure.vue')}
+      {path:'expenditure',component:()=>import('components/Expenditure/ExpenditureHomeLayout.vue')}
     ]
   },
   
