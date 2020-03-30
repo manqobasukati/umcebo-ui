@@ -78,7 +78,15 @@ export default Vue.extend({
     },
     edit() {
       this.$data.alert = !this.$data.alert;
-    }
+    },
+    async invoke_word_freq_response() {
+       await this.$store.dispatch(ACTIONS.set_tokenized_analysis);
+       await console.log(this.$store.state.set_tokenized_analysis)
+    },
+  },
+  created(){
+    this.invoke_word_freq_response();
+    
   },
   data() {
     return {
@@ -99,6 +107,7 @@ export default Vue.extend({
             return transaction != null;
           }
         );
+        
         return t;
       }
       return [
@@ -114,7 +123,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 .my-card {
   margin-top: 5px;
   border-radius: 0px;

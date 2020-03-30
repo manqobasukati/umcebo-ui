@@ -24,5 +24,9 @@ export const menuList = [
     {
       icon: 'fas fa-users',
       label: 'Stokvel'
+    },
+    {
+      icon: 'fas fa-arrow-right',
+      label: 'Transfer'
     }
   ];

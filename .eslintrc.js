@@ -68,7 +68,7 @@ module.exports = {
 
     // Custom
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
-
+    "@typescript-eslint/camelcase": ["error", { "properties": "never" } ],
     // Correct typescript linting until at least 2.0.0 major release
     // See https://github.com/typescript-eslint/typescript-eslint/issues/501
     // See https://github.com/typescript-eslint/typescript-eslint/issues/493

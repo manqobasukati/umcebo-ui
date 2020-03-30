@@ -44,7 +44,7 @@ import { MUTATIONS, ACTIONS } from '../../store/index';
 import state from '../../store/module-example/state';
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'ExpenditureHome',
   components: {
     UserTransactions
   },
@@ -85,6 +85,7 @@ export default Vue.extend({
             return transaction != null;
           }
         );
+        console.log(t)
         return t;
       }
       return [
@@ -123,7 +124,7 @@ export default Vue.extend({
 
 <style scoped>
 .my-card {
-  margin-top: 5px;
+  margin-top: 5p;
   border-radius: 0px;
 }
 .user__balance{

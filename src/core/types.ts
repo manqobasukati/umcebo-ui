@@ -1,6 +1,9 @@
 
 type action = "in" | "out";
 
+export enum BACKEND_SERVICES {
+    get_word_freq_response='get_word_freq_response'
+}
 
 
 export enum localStorageKeys {
@@ -8,6 +11,12 @@ export enum localStorageKeys {
     user = "user"
 }
 
+export interface TokenizedAnalysis{
+    token_action?:string,
+    token_count?:number,
+    token_name?:string,
+    token_total_amount?:number
+}
 export interface User{
     id:number,
     name:string,
@@ -24,7 +33,8 @@ export interface Transaction{
 
 export interface RootState{
     user:null|User,
-    balance:null|number
+    balance:null|number,
+    tokenized_analysis:null | TokenizedAnalysis[]
   }
   
 
