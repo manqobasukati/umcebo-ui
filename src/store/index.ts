@@ -54,7 +54,6 @@ export default function () {
         }
       },
       async [MUTATIONS.set_tokenized_analysis](state){
-
           await state.user?.transactions
           if(state.user?.transactions){
             state.tokenized_analysis = await get_word_freq_response(state.user?.transactions);

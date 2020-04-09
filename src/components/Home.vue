@@ -1,10 +1,13 @@
 <template>
-  <div class="row" >
-    <q-list v-for="(menuItem, index) in menuList" :key="index" class="col-4">
-      <q-item clickable  v-ripple v-bind:to="menuItem.url">
+  <div>
+    <q-list v-for="(menuItem, index) in menuList" :key="index">
+      <q-item clickable v-ripple v-bind:to="menuItem.url">
         <q-item-section avatar>
-          <i v-bind:class="menuItem.icon" class="menuItem__icon" ></i>
-          <q-item-label caption>{{ menuItem.label }}</q-item-label>
+          <i v-bind:class="menuItem.icon"></i>
+        </q-item-section>
+        <q-item-section>{{ menuItem.label }}</q-item-section>
+        <q-item-section>
+          <i class="fa fa-caret-right"></i>
         </q-item-section>
       </q-item>
     </q-list>
@@ -13,9 +16,7 @@
 
 <script>
 import Vue from 'vue';
-import { menuList } from 'src/config'
-
-
+import { menuList } from 'src/config';
 
 export default Vue.extend({
   name: 'Menu',
@@ -28,12 +29,12 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-  .menuItem__icon{
-    font-size: 30px;
-    margin-left: 2px;
-    margin-bottom: 3px;
-  }
-  .row{
-    margin-top:10px;
-  }
+.menuItem__icon {
+  font-size: 30px;
+  margin-left: 2px;
+  margin-bottom: 3px;
+}
+.row {
+  margin-top: 10px;
+}
 </style>
