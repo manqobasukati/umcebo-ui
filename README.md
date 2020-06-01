@@ -1,6 +1,9 @@
-# Wesm UI (weather_station_manager)
+# Umcebo 
 
-weather station managers, helping weather stations to keep their data
+An app to help me keep track of my fincial health by helping me to track both my expenses and incomings
+
+- App is written to run as a Progressive web application.
+- The app has also been compiled successfully to run on Android using cordova.
 
 ## Install the dependencies
 ```bash

@@ -36,10 +36,6 @@ import Home from './Home.vue';
 import { menuList } from 'src/config'
 
 
-
-
-
-
 export default Vue.extend({
   name: 'HomeLayout',
   data() {

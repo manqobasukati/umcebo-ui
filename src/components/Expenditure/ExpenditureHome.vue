@@ -85,7 +85,7 @@ export default Vue.extend({
             return transaction != null;
           }
         );
-        console.log(t)
+        
         return t;
       }
       return [
